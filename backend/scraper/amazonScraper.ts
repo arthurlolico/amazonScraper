@@ -21,21 +21,25 @@ const parseProducts = async (keyword: string) => {
     }
 }
 
+const processedDataAmazon = (productInfo: any) => {
+    const productTitle = productInfo.querySelector('div[data-cy="title-recipe"]');
+    const productRatings = productInfo.querySelector('i.a-icon-star-small');
+    const productNumberReview = productInfo.querySelector('span[data-component-type="s-client-side-analytics"]');
+    const productImageSource = productInfo.querySelector('img');
+    return {
+        titleProduct: productTitle?.textContent,
+        ratingsProduct: productRatings?.textContent ?? "N/A",
+        numberOfReviewProduct: productNumberReview?.textContent ?? "N/A",
+        imgSrcProduct: productImageSource?.getAttribute('src'),
+    }
+}
+
 const extractItemData = async (keyword: string) => {
     try {
         const arrayProductsInfo = await parseProducts(keyword);
         if (arrayProductsInfo != null) {
             const finalArray = arrayProductsInfo.map(productInfo => {
-                const titleProduct = productInfo.querySelector('div[data-cy="title-recipe"]');
-                const ratingsProduct = productInfo.querySelector('i.a-icon-star-small');
-                const numberOfReviewProduct = productInfo.querySelector('span[data-component-type="s-client-side-analytics"]');
-                const imgSrcProduct = productInfo.querySelector('img');
-                return {
-                    titleProduct: titleProduct?.textContent,
-                    ratingsProduct: ratingsProduct?.textContent ?? "N/A",
-                    numberOfReviewProduct: numberOfReviewProduct?.textContent ?? "N/A",
-                    imgSrcProduct: imgSrcProduct?.getAttribute('src'),
-                }
+                return processedDataAmazon(productInfo);
             }
         )
         return finalArray;
