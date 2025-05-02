@@ -1,0 +1,59 @@
+body {
+    padding: 16px;
+    background-color: #F5F5F5;
+}
+
+.awsSearch {
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+h5 {
+    margin-right: 8px;
+}
+
+input {
+    margin-right: 8px;
+}
+
+.rowProduct {
+    display: flex;
+    margin: 16px 0px;
+    gap: 16px;
+}
+
+.product {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #CCCCCC;
+    border-radius: 12px;
+    padding: 16px;
+    gap: 8px;
+}
+
+img {
+    width: 100%;
+}
+
+.product-title {
+    font-family: 'Century Gothic', 'Trebuchet MS', Arial;
+    font-weight: bold;
+}
+
+.product-ratings {
+    font-family: Verdana, Tahoma, sans-serif;
+    color: #ffc107;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.product-number-reviews {
+    font-family: Arial, Verdana, sans-serif;
+    margin-top: 16px;
+    font-weight: bold;
+    color: #888888
+}
